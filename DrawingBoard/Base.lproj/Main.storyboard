@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="UgK-de-DLq">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Tiles-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="DBTilesViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="DBCanvasView">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="yBs-7a-Eap">
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="25" minimumInteritemSpacing="0.0" id="5eL-iC-QEf">
+                                    <size key="itemSize" width="60" height="60"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="25"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DBCollectionViewCell" id="fDB-3c-EvN" customClass="DBCollectionViewCell">
+                                        <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oIS-fY-1zf" customClass="DBCanvasView">
+                                                    <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <gestureRecognizers/>
+                                                </view>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="oIS-fY-1zf" firstAttribute="top" secondItem="fDB-3c-EvN" secondAttribute="top" id="ROz-eI-rKs"/>
+                                            <constraint firstAttribute="trailing" secondItem="oIS-fY-1zf" secondAttribute="trailing" id="W27-2H-JUo"/>
+                                            <constraint firstAttribute="bottom" secondItem="oIS-fY-1zf" secondAttribute="bottom" id="eX8-n6-YWM"/>
+                                            <constraint firstItem="oIS-fY-1zf" firstAttribute="leading" secondItem="fDB-3c-EvN" secondAttribute="leading" id="kFy-fc-M1e"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="polygonView" destination="oIS-fY-1zf" id="8rD-RC-p46"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="0js-gE-2Jp"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="9Y4-6R-ji4"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yBs-7a-Eap" secondAttribute="trailing" id="8XU-4f-VRd"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="yBs-7a-Eap" secondAttribute="bottom" id="GUo-J6-yY2"/>
+                            <constraint firstItem="yBs-7a-Eap" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="rGB-pT-ET1"/>
+                            <constraint firstItem="yBs-7a-Eap" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="w1v-nT-hk6"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="sides">
+                                <integer key="value" value="3"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="radius">
+                                <integer key="value" value="150"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Tiles" id="XEQ-UJ-Uzz"/>
+                    <connections>
+                        <outlet property="tilesView" destination="yBs-7a-Eap" id="9bF-FT-cm3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="689" y="27"/>
+        </scene>
+        <!--Polygon-->
+        <scene sceneID="r2N-uL-OQK">
+            <objects>
+                <viewController id="eQH-ew-shN" customClass="DBPolygonViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1Ih-2L-39z" customClass="DBCanvasView">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="SWz-sx-62Q"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Polygon" id="USv-oo-G84"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kyr-Oh-EUQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="198" y="574"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="kbj-sd-0Q7">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="UgK-de-DLq" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9gV-6q-zbn">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="eQH-ew-shN" kind="relationship" relationship="viewControllers" id="blz-dd-maS"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="027-HU-zMJ"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SMK-zZ-gRI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-578" y="27"/>
+        </scene>
+    </scenes>
+</document>
